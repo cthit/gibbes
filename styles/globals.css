@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body {
-  background-color: rgba(0, 0, 0, 0.2);
+  @apply bg-slate-800;
+  @apply text-slate-200;
 }

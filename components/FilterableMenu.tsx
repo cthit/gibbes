@@ -1,4 +1,4 @@
-import { RefObject, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import MenuBar from './MenuBar'
 import Menu from './Menu'
 
@@ -12,9 +12,9 @@ function FilterableMenu() {
   }
 
   return (
-    <div>
-      <MenuBar search={search} setSearch={setSearch} scrollRefs={scrollRefs}/>
-      <Menu search={search} scrollRefs={scrollRefs}/>
+    <div className='container mx-auto px-2 sm:px-0'>
+      <MenuBar search={search} setSearch={setSearch} scrollRefs={scrollRefs} />
+      <Menu search={search} scrollRefs={scrollRefs} />
     </div>
   )
 }

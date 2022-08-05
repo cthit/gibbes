@@ -1,4 +1,3 @@
-import Fuse from "fuse.js"
 import Food from "../lib/types/Food"
 import Card from "./Card"
 import CategoryHeader from "./CategoryHeader"
@@ -10,24 +9,27 @@ interface CategoryProps {
   foods: Food[]
 }
 
-function Category({category, search, scrollRef, foods}: CategoryProps) {
-  const options = {
-    keys: ['number', 'name', 'ingredients'],
-    isCaseSensitive: false,
-    threshold: 0.3,
-  }
-
-  if (search.trim().length > 0) {
-    const fuse = new Fuse(foods, options)
-    const result = fuse.search(search).map(({item}) => item)
-    foods = result
+function Category({ category, search, scrollRef, foods }: CategoryProps) {
+  search = search.trim().toLowerCase();
+  let searchTerms = search.length > 0 ? search.split(/[, ]+/).map(term => term.trim()) : [];
+  if (searchTerms.length > 0) {
+    foods = foods.filter(food => {
+      for (let i = 0; i < searchTerms.length; i++) {
+        if (!(food.number.toLowerCase().includes(searchTerms[i]) ||
+          food.name.toLowerCase().includes(searchTerms[i]) ||
+          food.ingredients.toLowerCase().includes(searchTerms[i]))) {
+          return false;
+        }
+      }
+      return true;
+    });
   }
 
   return (
-    <div ref={scrollRef}>
-      <CategoryHeader category={category}/>
-      <div className="flex flex-row flex-wrap">
-        {foods.map((food) => <Card key={food.name} {...food}/>)}
+    <div ref={scrollRef} className='mb-4'>
+      <CategoryHeader category={category} />
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {foods.map((food) => <Card key={food.name} {...food} />)}
       </div>
     </div>
   )
