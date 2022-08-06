@@ -33,7 +33,7 @@ function MenuBar({ search, setSearch, scrollRefs }: MenuBarProps) {
   }
 
   return (
-    <div ref={topBarRef} className='grid grid-cols-4 text-center text-lg md:text-4xl sticky top-0 bg-slate-800 py-2'>
+    <div ref={topBarRef} className='grid grid-cols-4 text-center text-2xl md:text-4xl sticky top-0 bg-slate-800 py-2'>
       <input className='col-span-5 text-slate-800 py-2 rounded border-black border-2 text-base text-center'
         type='text' placeholder='Search for name/ingredient' value={search} onChange={handleSearch} onKeyDown={handleKeyPress} />
       <div className="cursor-pointer select-none" onClick={() => scrollToCategory(scrollRefs.pizzas)}>Pizzas</div>

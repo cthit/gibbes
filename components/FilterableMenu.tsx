@@ -12,7 +12,7 @@ function FilterableMenu() {
   }
 
   return (
-    <div className='container mx-auto px-2 sm:px-0'>
+    <div className='container mx-auto px-4 sm:px-0'>
       <MenuBar search={search} setSearch={setSearch} scrollRefs={scrollRefs} />
       <Menu search={search} scrollRefs={scrollRefs} />
     </div>

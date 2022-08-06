@@ -4,5 +4,5 @@
 
 body {
   @apply bg-slate-800;
-  @apply text-slate-200;
+  @apply text-white;
 }
