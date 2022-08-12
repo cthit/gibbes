@@ -1,6 +1,6 @@
-import Food from "../lib/types/Food"
-import Card from "./Card"
-import CategoryHeader from "./CategoryHeader"
+import Food from '../lib/types/Food'
+import Card from './Card'
+import CategoryHeader from './CategoryHeader'
 
 interface CategoryProps {
   category: string
@@ -28,7 +28,7 @@ function Category({ category, search, scrollRef, foods }: CategoryProps) {
   return (
     <div ref={scrollRef} className='mb-4'>
       <CategoryHeader category={category} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
         {(foods.length > 0)
           ? foods.map((food) => <Card key={food.name} {...food} />)
           : <div className='text-center col-span-10'> No foods mathcing search. </div>
