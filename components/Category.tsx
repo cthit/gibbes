@@ -31,7 +31,7 @@ function Category({ category, search, scrollRef, foods }: CategoryProps) {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
         {(foods.length > 0)
           ? foods.map((food) => <Card key={food.name} {...food} />)
-          : <div className='text-center col-span-10'> No foods mathcing search. </div>
+          : <div className='text-center col-span-10'> No foods matching search. </div>
         }
       </div>
     </div>
